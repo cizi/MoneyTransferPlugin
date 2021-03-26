@@ -1,0 +1,12 @@
+{
+    "name": "money/transfer",
+    "description": "Example multi currency money transfer Library",
+    "require-dev": {
+        "phpunit/phpunit": "^7"
+    },
+    "autoload": {
+        "psr-4": {
+            "Library\\": "library/"
+        }
+    }
+}
