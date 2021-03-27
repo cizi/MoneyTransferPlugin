@@ -28,16 +28,6 @@ class BaseCurrencyOperation
         }
     }
 
-    public function subtraction(ICurrency $currency, float $amount): void
-    {
-        $this->checkInputCurrency($currency);
-        if ($this->baseCurrency === $currency->getCurrencyShort()) {
-            $this->total -= $amount;
-        } else {
-            $this->total -= $currency->getCurrencyExchangeRate() * $amount;
-        }
-    }
-
     public function multiplication(ICurrency $currency, float $multiplicator): void
     {
         $this->checkInputCurrency($currency);
