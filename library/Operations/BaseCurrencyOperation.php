@@ -40,6 +40,9 @@ class BaseCurrencyOperation
 
     public function division(ICurrency $currency, float $divider): void
     {
+        if ($divider === 0) {
+            throw new \Exception('Division by zero, divider could not be equal to zero');
+        }
         $this->checkInputCurrency($currency);
         if ($this->baseCurrency === $currency->getCurrencyShort()) {
             $this->total /= $divider;

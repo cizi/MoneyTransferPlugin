@@ -61,6 +61,17 @@ class BaseCurrencyOperationTest extends TestCase
         $this->assertEquals(200, $baseOperationCzk->getTotal());
     }
 
+    public function testDivisionByZero(): void
+    {
+        try {
+            $czechCurrency = new Currency(CurrenciesEnum::CZK, 1);
+            $baseOperationCzk = new BaseCurrencyOperation(CurrenciesEnum::CZK);
+            $baseOperationCzk->division($czechCurrency, 0);
+        } catch (Exception $e) {
+            $this->assertContains('division by zero', strtolower($e->getMessage()));
+        }
+    }
+
     public function testDivision(): void
     {
         $addingEuros = 4;
