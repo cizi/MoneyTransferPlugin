@@ -67,6 +67,7 @@ class BaseCurrencyOperationTest extends TestCase
             $czechCurrency = new Currency(CurrenciesEnum::CZK, 1);
             $baseOperationCzk = new BaseCurrencyOperation(CurrenciesEnum::CZK);
             $baseOperationCzk->division($czechCurrency, 0);
+            $this->fail('Error: Test fail, division by zero should be throw');
         } catch (Exception $e) {
             $this->assertContains('division by zero', strtolower($e->getMessage()));
         }
