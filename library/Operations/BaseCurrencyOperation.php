@@ -12,6 +12,16 @@ class BaseCurrencyOperation
 
     private string $baseCurrency;
 
+    /*
+     * Příklad použití (zatím) neexistující třídy pro uchování historie
+     * transakcí (operací), kam bych při každé úspěšně vykonané operaci
+     * uložil instanci třídy OperationHistory, kde by bylo evidováno kdo,
+     * kdy, kolik a jakou operaci provedl. Z tohoto pole objektů OperationHistory
+     * by bylo poté možné vytvářet sestavy.
+     */
+    /** @var OperationHistory[] */
+    private array $history;
+
     public function __construct(string $baseCurrencyShort)
     {
         $this->total = 0;
